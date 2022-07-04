@@ -1,0 +1,82 @@
+﻿<Window x:Class="WpfUI.PanuonUI.Silver.Windows.DataGridTreeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI.PanuonUI.Silver.Windows"
+        mc:Ignorable="d"
+        Title="DataGridTreeWindow" Height="450" Width="800">
+    <Grid>
+        <!--<DataGrid  ItemsSource="{Binding MessageViewDataList, Mode=TwoWay}"
+                   pu:DataGridHelper.SelectedBackground="#E8F3FF" pu:DataGridHelper.HoverBackground="#E8F3FF" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.Header >
+                        <CheckBox IsChecked="{Binding DataContext.IsFullSelected,RelativeSource={RelativeSource AncestorType=DataGrid},UpdateSourceTrigger=PropertyChanged}"   Cursor="Hand"
+                                   HorizontalAlignment="Center"   >
+                        </CheckBox>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Cursor="Hand"
+                                    HorizontalAlignment="Center"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+        
+                <DataGridTemplateColumn Width="253" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TreeView x:Name="TvCustom" pu:TreeViewHelper.SelectedForeground="#007DFF" HorizontalAlignment="Center"
+                  pu:TreeViewHelper.SelectedBackground="#007DFF"  pu:TreeViewHelper.TreeViewStyle="Chain" Height="auto"
+                  Width="253"  Margin="20,0" pu:TreeViewHelper.SelectMode="Any"  pu:TreeViewHelper.ExpandMode="DoubleClick"
+                                  VerticalAlignment="Stretch"  ItemsSource="{Binding CompanyNames}"  >
+                                <TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate  ItemsSource="{Binding Children}"  >
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="{Binding Header}" />
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+
+
+        <TreeView x:Name="TvCustom" pu:TreeViewHelper.SelectedForeground="#007DFF" HorizontalAlignment="Center"
+                  pu:TreeViewHelper.SelectedBackground="#007DFF"  pu:TreeViewHelper.TreeViewStyle="Chain" Height="auto"
+                  Width="auto"  Margin="20,0" pu:TreeViewHelper.SelectMode="Any"  pu:TreeViewHelper.ExpandMode="DoubleClick"
+                                  VerticalAlignment="Stretch"  ItemsSource="{Binding CompanyNames}"  >
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate  ItemsSource="{Binding Children}"  >
+                    <DataGrid  ItemsSource="{Binding Header, Mode=TwoWay}"
+                   pu:DataGridHelper.SelectedBackground="#E8F3FF" pu:DataGridHelper.HoverBackground="#E8F3FF" >
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn >
+                                <!--<DataGridTemplateColumn.Header >
+                                    <CheckBox IsChecked="{Binding DataContext.IsFullSelected,RelativeSource={RelativeSource AncestorType=DataGrid},UpdateSourceTrigger=PropertyChanged}"   Cursor="Hand"
+                                   HorizontalAlignment="Center"   >
+                                    </CheckBox>
+                                </DataGridTemplateColumn.Header>-->
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Cursor="Hand"
+                                    HorizontalAlignment="Center"  />
+                                            <TextBlock Text="{Binding CompanyNames}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </Grid>
+</Window>

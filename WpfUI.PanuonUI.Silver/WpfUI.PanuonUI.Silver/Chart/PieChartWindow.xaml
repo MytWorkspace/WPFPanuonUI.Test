@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfUI.PanuonUI.Silver.Chart.PieChartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI.PanuonUI.Silver.Chart"
+        xmlns:h="clr-namespace:HeBianGu.Control.Chart2D;assembly=HeBianGu.Control.Chart2D"
+        mc:Ignorable="d"  DataContext="{Binding Source={StaticResource Locator},Path=PieChartWindowVM}" 
+        Title="PieChartWindow" Height="600" Width="1200">
+    <Grid >
+        <UniformGrid>
+            <h:Chart Margin="10" >
+                <h:Series>
+                    <h:Pie Data="18,23,25,28"
+                                   Foreground="red,green,blue,purple"
+                                   IsCustomized="True"
+                                   Len="120" 
+                                   xDisplay="主要的,次要的,第三,第四" />
+                </h:Series>
+            </h:Chart>
+            <h:Chart Margin="10" >
+                <h:Series DisplayName="排名" DisplayMemberPath="{Binding PieChart2DTotalFaultStatistics.PieTitles}"  >
+                    <h:Pie Data="{Binding PieChart2DTotalFaultStatistics.PieDatas}" 
+                                   Foreground="{Binding PieChart2DTotalFaultStatistics.PieForgrounds}" 
+                                   IsCustomized="True"
+                                   Len="120" CircleLen="10" 
+                                   xDisplay="{Binding PieChart2DTotalFaultStatistics.PieTitles}"  />
+                    
+                </h:Series>
+                <h:Legend   />
+            </h:Chart>
+            <h:Series >
+                <h:Pie Data="18,23,25,28"
+                                   Foreground="red,green,blue,purple"
+                                   Len="120"  CircleLen="100" 
+                                   xDisplay="主要的,次要的,第三,第四" />
+                <TextBlock Text="月排名" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                </TextBlock>
+            </h:Series>
+        </UniformGrid>
+    </Grid>
+</Window>
