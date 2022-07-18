@@ -18,9 +18,14 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
 
             SimpleIoc.Default.Register<PieChartWindowVM>();
 
+            SimpleIoc.Default.Register<ListBoxWindow1VM>();
+            
+
         }
 
         public PieChartWindowVM PieChartWindowVM => SimpleIoc.Default.GetInstanceWithoutCaching<PieChartWindowVM>();
+
+        public ListBoxWindow1VM ListBoxWindow1VM => SimpleIoc.Default.GetInstanceWithoutCaching<ListBoxWindow1VM>();
 
     }
 }

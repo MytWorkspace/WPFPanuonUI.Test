@@ -92,13 +92,18 @@ namespace WpfUI.PanuonUI.Silver.ViewModel.Chart
             PieTitles.Add("光纤LOS故障 7次(32%)");
             PieTitles.Add("摄像机网络故障 9次(41%)");
 
-
             PieChart2DTotalFaultStatistics.PieDatas = PieDatas;
             //PieChart2DTotalFaultStatistics.PieForgrounds = PieForgrounds;
+
+
 
             PieChart2DTotalFaultStatistics.PieForgrounds = PieChart2DTotalFaultStatistics.GetColor();
 
             PieChart2DTotalFaultStatistics.PieTitles = pieTitles;
+
+            //初始化 列表数据
+
+            PieChart2DTotalFaultStatistics.InitBottomListBox();
         }
 
         /// <summary>
@@ -171,6 +176,54 @@ namespace WpfUI.PanuonUI.Silver.ViewModel.Chart
             colors.Add((Color)System.Windows.Media.ColorConverter.ConvertFromString("#F24F4B"));
 
             return colors;
+        }
+
+
+        public void InitBottomListBox()
+        {
+            int i = 0;
+            foreach (var item in PieTitles)
+            {
+                string title = item.Substring(0, item.IndexOf(" "));
+                PieBottomDataModel pieBottomDataModel = new PieBottomDataModel();
+                pieBottomDataModel.Title = title;
+
+                pieBottomDataModel.Forground = new SolidColorBrush(PieForgrounds[i]);
+                i++;
+                PieBottomDataModels.Add(pieBottomDataModel);
+            }
+        }
+
+        public ObservableCollection<PieBottomDataModel> pieBottomDataModels = new ObservableCollection<PieBottomDataModel>();
+
+        public ObservableCollection<PieBottomDataModel> PieBottomDataModels
+        {
+            get => pieBottomDataModels;
+            set { pieBottomDataModels = value; RaisePropertyChanged(); }
+        }
+
+
+    }
+    public class PieBottomDataModel : ViewModelBase
+    {
+        private string title;
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public string Title
+        {
+            get => title;
+            set { title = value; RaisePropertyChanged(); }
+        }
+
+        private SolidColorBrush forground;
+        /// <summary>
+        /// 颜色
+        /// </summary>
+        public SolidColorBrush Forground
+        {
+            get => forground;
+            set { forground = value; RaisePropertyChanged(); }
         }
 
     }

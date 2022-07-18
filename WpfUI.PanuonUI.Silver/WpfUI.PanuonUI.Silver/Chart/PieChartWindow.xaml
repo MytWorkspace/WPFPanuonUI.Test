@@ -6,7 +6,36 @@
         xmlns:local="clr-namespace:WpfUI.PanuonUI.Silver.Chart"
         xmlns:h="clr-namespace:HeBianGu.Control.Chart2D;assembly=HeBianGu.Control.Chart2D"
         mc:Ignorable="d"  DataContext="{Binding Source={StaticResource Locator},Path=PieChartWindowVM}" 
-        Title="PieChartWindow" Height="600" Width="1200">
+        Title="PieChartWindow" Height="800" Width="1200">
+    <Window.Resources>
+        <Style TargetType="ListBox" x:Key="ListBoxHor">
+            <!--设置模板-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!--设置控件模板-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid >
         <UniformGrid>
             <h:Chart Margin="10" >
@@ -19,15 +48,24 @@
                 </h:Series>
             </h:Chart>
             <h:Chart Margin="10" >
-                <h:Series DisplayName="排名" DisplayMemberPath="{Binding PieChart2DTotalFaultStatistics.PieTitles}"  >
+                <h:Series DisplayName="排名"   >
                     <h:Pie Data="{Binding PieChart2DTotalFaultStatistics.PieDatas}" 
                                    Foreground="{Binding PieChart2DTotalFaultStatistics.PieForgrounds}" 
                                    IsCustomized="True"
                                    Len="120" CircleLen="10" 
                                    xDisplay="{Binding PieChart2DTotalFaultStatistics.PieTitles}"  />
-                    
+                    <ListBox ItemsSource="{Binding PieChart2DTotalFaultStatistics.PieBottomDataModels}" 
+                             HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource ListBoxHor}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"   >
+                                    <Border Background="{Binding Forground}" Width="14" Height="6" CornerRadius="3" />
+                                    <TextBlock Text="{Binding Title}" Margin="9,0,0,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </h:Series>
-                <h:Legend   />
             </h:Chart>
             <h:Series >
                 <h:Pie Data="18,23,25,28"

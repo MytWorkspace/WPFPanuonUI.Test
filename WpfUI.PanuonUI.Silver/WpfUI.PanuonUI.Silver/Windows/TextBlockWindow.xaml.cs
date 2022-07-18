@@ -11,21 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfUI.PanuonUI.Silver.ViewModel;
 
 namespace WpfUI.PanuonUI.Silver.Windows
 {
     /// <summary>
-    /// ListBoxWindow1.xaml 的交互逻辑
+    /// TextBlockWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ListBoxWindow1 : Window
+    public partial class TextBlockWindow : Window
     {
-        ListBoxWindow1VM vm;
-        public ListBoxWindow1()
+        public TextBlockWindow()
         {
             InitializeComponent();
-
-            vm = DataContext as ListBoxWindow1VM;
         }
     }
 }

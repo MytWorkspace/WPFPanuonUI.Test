@@ -105,7 +105,10 @@
                  pu:ButtonHelper.Icon="&#xf2b9;"
                 pu:ButtonHelper.HoverBrush="#1600FF"
                 pu:ButtonHelper.CornerRadius="4" Click="Button_Click_5" />
-            <TextBlock Text="点击"  VerticalAlignment="Center"  />
+            <TextBlock Text="点击1234567890"  VerticalAlignment="Center"  />
+            <Button Content="TabItem"    Click="Button_Click_6"   />
+
+        
         </WrapPanel>
     </Grid>
 </Window>

@@ -64,6 +64,11 @@ namespace WpfUI.PanuonUI.Silver
             ListBoxWindow1 listBoxWindow1 = new ListBoxWindow1();
             listBoxWindow1.Show();
         }
-    
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            TabItemViewWindow tabItemViewWindow = new TabItemViewWindow();
+            tabItemViewWindow.Show();
+        }
     }
 }
