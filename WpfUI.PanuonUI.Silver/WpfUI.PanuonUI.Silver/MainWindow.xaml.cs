@@ -70,5 +70,11 @@ namespace WpfUI.PanuonUI.Silver
             TabItemViewWindow tabItemViewWindow = new TabItemViewWindow();
             tabItemViewWindow.Show();
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            TextBlockWindow textBlockWindow = new TextBlockWindow();
+            textBlockWindow.Show();
+        }
     }
 }

@@ -102,6 +102,7 @@
     <Compile Include="ViewModel\MultiSelectorViewModel.cs" />
     <Compile Include="ViewModel\DataGridWindowVM.cs" />
     <Compile Include="ViewModel\MainWindowVM.cs" />
+    <Compile Include="ViewModel\TextBlockWindowVM.cs" />
     <Compile Include="ViewModel\TreeListViewWindowVM.cs" />
     <Compile Include="ViewModel\TreeViewWindowVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

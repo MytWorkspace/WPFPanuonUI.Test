@@ -26,6 +26,16 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
                 new MessageViewDataModel(){ Number="4",Title = "Title", Type = "Type", CompanyName = "CompanyName", IsRead = "IsRead",Status="Status", AddTime = "AddTime" },
                 new MessageViewDataModel(){ Number="5",Title = "Title", Type = "Type", CompanyName = "CompanyName", IsRead = "IsRead",Status="Status", AddTime = "AddTime" }
             };
+
+
+            MessageModelList = new ObservableCollection<MessageModel>()
+            {
+                new MessageModel(){ Number="1",Title = "Title1", Type = "Type1", },
+                new MessageModel(){ Number="2",Title = "Title2", Type = "Type2", },
+                new MessageModel(){ Number="3",Title = "Title3", Type = "Type3",},
+                new MessageModel(){ Number="4",Title = "Title4", Type = "Type4",},
+                new MessageModel(){ Number="5",Title = "Title5", Type = "Type5",}
+            };
         }
 
         private ObservableCollection<MessageViewDataModel> _messageViewDataList;
@@ -35,6 +45,17 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
             set
             {
                 _messageViewDataList = value; this.RaisePropertyChanged();
+            }
+        }
+
+
+        private ObservableCollection<MessageModel> messageModelList;
+        public ObservableCollection<MessageModel> MessageModelList
+        {
+            get { return messageModelList; }
+            set
+            {
+                messageModelList = value; this.RaisePropertyChanged();
             }
         }
 
@@ -130,5 +151,64 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
 
         [IgnoreColumn]
         public object Tag { get; set; }
+    }
+
+
+
+    public class MessageModel : ViewModelBase
+    {
+        private string number;
+        /// <summary>
+        /// 序号
+        /// </summary>
+        public string Number
+        {
+            get { return number; }
+            set
+            {
+                number = value;
+                this.RaisePropertyChanged();
+            }
+        }
+        private string title;
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                title = value;
+                this.RaisePropertyChanged();
+            }
+        }
+        private string type;
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public string Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+                this.RaisePropertyChanged();
+            }
+        }
+        private string message;
+        /// <summary>
+        /// 内容
+        /// </summary>
+        public string Message
+        {
+            get { return message; }
+            set
+            {
+                message = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
     }
 }

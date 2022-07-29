@@ -108,7 +108,16 @@
             <TextBlock Text="点击1234567890"  VerticalAlignment="Center"  />
             <Button Content="TabItem"    Click="Button_Click_6"   />
 
-        
+            <Button Content="通用样式"  Width="100"  Height="30" Margin="10" 
+                    Cursor="Hand"  Click="Button_Click_7"  >
+                <Button.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding DataContext.LeftClickButtonDown,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                  CommandParameter="{Binding}"  >
+                        
+                    </MouseBinding>
+                </Button.InputBindings>
+            </Button>
+
         </WrapPanel>
     </Grid>
 </Window>

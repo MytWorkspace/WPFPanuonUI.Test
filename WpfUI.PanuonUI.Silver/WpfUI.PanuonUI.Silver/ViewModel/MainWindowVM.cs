@@ -54,5 +54,28 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
             }
             set { _dataGridHeaderCheckedCommond = value; }
         }
+
+
+        private RelayCommand<object> leftClickButtonDown;
+
+        public RelayCommand<object> LeftClickButtonDown
+        {
+            get
+            {
+                if (leftClickButtonDown == null)
+                {
+                    leftClickButtonDown = new RelayCommand<object>(obj =>
+                    {
+
+
+                    }, true);
+                }
+                return leftClickButtonDown;
+            }
+            set
+            {
+                leftClickButtonDown = value;
+            }
+        }
     }
 }

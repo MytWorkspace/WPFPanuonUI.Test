@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI.PanuonUI.Silver.Windows"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
         Title="TextBlockWindow" Height="450" Width="800">
     <Grid>
-        
+        <UniformGrid>
+            <TextBlock Text="测试" Margin="30" />
+            <TextBox Text="333"  Margin="30" BorderBrush="Red" BorderThickness="1" pu:TextBoxHelper.CornerRadius="5" />
+
+            <Button  >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Width="{TemplateBinding Width}" TextAlignment="Center" x:Name="txtExtFieldValue" Text="{Binding DataValue}"
+                           FontSize="36" FontFamily="微软雅黑" Foreground="#ffffff" >
+                    <Run Text="{Binding CurrentPage}"/>
+                    <Run Text="/"/>
+                    <Run Text="{Binding TotalPages}"/>
+                        </TextBlock>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding DataValue}" Value="强度" >
+                                <Setter TargetName="txtExtFieldValue" Property="Foreground" Value="red"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DataValue}" Value="中等" >
+                                <Setter TargetName="txtExtFieldValue" Property="Foreground" Value="blue"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                     
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </UniformGrid>
     </Grid>
 </Window>

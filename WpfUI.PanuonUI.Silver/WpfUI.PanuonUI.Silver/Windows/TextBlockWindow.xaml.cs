@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfUI.PanuonUI.Silver.ViewModel;
 
 namespace WpfUI.PanuonUI.Silver.Windows
 {
@@ -22,6 +23,8 @@ namespace WpfUI.PanuonUI.Silver.Windows
         public TextBlockWindow()
         {
             InitializeComponent();
+
+            DataContext = new TextBlockWindowVM();
         }
     }
 }
