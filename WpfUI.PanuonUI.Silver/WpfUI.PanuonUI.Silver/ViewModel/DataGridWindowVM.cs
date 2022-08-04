@@ -107,23 +107,15 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
         }
 
         [DisplayName("序号")]
-        [ColumnWidth]
-        [ReadOnlyColumn]
         public string Number { get; set; }
 
         [DisplayName("标题")]
-        [ColumnWidth]
-        [ReadOnlyColumn]
         public string Title { get; set; }
 
         [DisplayName("类型")]
-        [ColumnWidth]
-        [ReadOnlyColumn]
         public string Type { get; set; }
 
         [DisplayName("内容")]
-        [ColumnWidth("*")]
-        [ReadOnlyColumn]
         public string Message { get; set; }
 
         [DisplayName("添加时间")]

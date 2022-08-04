@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace WpfUI.PanuonUI.Silver.ViewModel
 {
@@ -33,6 +34,29 @@ namespace WpfUI.PanuonUI.Silver.ViewModel
                 return _LoadedEvent;
             }
             set { _LoadedEvent = value; }
+        }
+
+        private int temp;
+
+        public int Temp
+        {
+
+            get
+            {
+
+                return temp;
+            }
+            set
+            {
+                temp = value;
+
+                Dispatcher.CurrentDispatcher.Invoke(() =>
+                {
+
+                });
+              
+            }
+
         }
 
 
